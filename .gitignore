@@ -1,6 +1,16 @@
-@"
+# Node / frontend
 node_modules/
 **/node_modules/
+
+# Env & secrets
 .env
+cert.pem
+config.yml
+6c5c424a-2303-44ff-beb3-57b242e61ff7.json
+
+# Editor
 .vscode/
-"@ | Out-File -Encoding UTF8 .gitignore
+
+# OS
+.DS_Store
+Thumbs.db

@@ -2,7 +2,7 @@ import express from 'express';
 
 const router = express.Router();
 
-// Временное хранилище
+// time being, store latest measurement in memory
 let latestMeasurement = {
     oxygen: 20.9,
     co2: 400,
@@ -10,13 +10,13 @@ let latestMeasurement = {
     timestamp: new Date()
 };
 
-// Функция для установки io (вызовем из server.ts)
+// WebSocket inst
 let io: any;
 export const setIO = (socketIO: any) => {
     io = socketIO;
 };
 
-// POST - получить данные от ESP32
+// POST - receive new measurement data
 router.post('/', (req, res) => {
     const { oxygen, co2, particles } = req.body;
     
@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
     
     console.log('📊 Новое измерение:', latestMeasurement);
     
-    // Отправляем через WebSocket всем подключенным клиентам
+    // emit via WebSocket
     if (io) {
         io.emit('newMeasurement', latestMeasurement);
         console.log('🔌 Данные отправлены через WebSocket');
@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
     });
 });
 
-// GET - получить последние данные
+// GET - get latest measurement
 router.get('/latest', (req, res) => {
     res.json(latestMeasurement);
 });

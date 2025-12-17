@@ -20,7 +20,7 @@ const io = new SocketIOServer(httpServer, {
     }
 });
 
-// Передаём io в роуты
+// Initialize WebSocket in measurements router
 setIO(io);
 
 app.use(cors());
@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
 
 httpServer.listen(PORT, () => {
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('🚀 Backend запущен!');
+    console.log('🚀 Backend is online!');
     console.log(`📡 Server: http://localhost:5000`);
     console.log(`🔌 WebSocket: ws://localhost:5000`);
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
