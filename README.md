@@ -75,7 +75,7 @@ A complete IoT solution for real-time indoor air quality monitoring with ESP32 s
 | CO₂ Sensor | **SCD41** | Measures CO₂, temperature, humidity |
 | Blue LEDs | 3x | CO₂ level indicator |
 | Red LEDs | 3x | Humidity level indicator |
-| Green LED | 1x | Status indicator (blink rate = air quality) |
+
 
 ### Wiring Diagram
 
@@ -173,7 +173,7 @@ The database follows **Third Normal Form (3NF)** to eliminate data redundancy.
 |-------------|-------------|--------|
 | **1NF** | Atomic values, no repeating groups | ✅ |
 | **2NF** | No partial dependencies on composite key | ✅ |
-| **3NF** | No transitive dependencies | ✅ |
+
 
 ---
 
