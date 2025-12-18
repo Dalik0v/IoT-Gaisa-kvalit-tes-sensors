@@ -1,16 +1,34 @@
-# Node / frontend
+# Environment files
+.env
+.env.local
+.env.production
+
+# Cloudflare tunnel credentials (SENSITIVE!)
+config.yml
+cloudflare/
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+
+# Node modules
 node_modules/
 **/node_modules/
 
-# Env & secrets
-.env
-cert.pem
-config.yml
-6c5c424a-2303-44ff-beb3-57b242e61ff7.json
+# Build outputs
+dist/
+build/
+**/dist/
+**/build/
 
-# Editor
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
 .vscode/
+.idea/
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db

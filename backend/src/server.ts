@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import { Server as SocketIOServer } from 'socket.io';
 import measurementsRouter, { setIO } from './routes/measurements';
 import devicesRouter from './routes/devices';
+import authRouter from './routes/auth';
 
 dotenv.config();
 
@@ -28,20 +29,21 @@ app.use(express.json());
 
 app.use('/api/measurements', measurementsRouter);
 app.use('/api/devices', devicesRouter);
+app.use('/api/auth', authRouter);
 
 app.get('/health', (req, res) => {
     res.json({
         status: 'OK',
-        message: 'Backend работает!',
+        message: 'Backend is running',
         timestamp: new Date()
     });
 });
 
 io.on('connection', (socket) => {
-    console.log('🔌 Клиент подключился:', socket.id);
-    
+    console.log('Client connected:', socket.id);
+
     socket.on('disconnect', () => {
-        console.log('❌ Клиент отключился:', socket.id);
+        console.log('Client disconnected:', socket.id);
     });
 });
 
