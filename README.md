@@ -285,7 +285,7 @@ This project was developed as a qualification work demonstrating:
 
 - **IoT Development** — ESP32 microcontroller programming
 - **Full-Stack Development** — React + Node.js + PostgreSQL
-- **Database Design** — Third Normal Form (3NF)
+- **Database Design** — 2 Normal Form (2NF)
 - **DevOps** — Docker containerization
 - **Real-time Communication** — WebSocket implementation
 
